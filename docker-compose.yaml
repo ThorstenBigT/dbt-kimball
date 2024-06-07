@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:16.3
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 5432:5432
+    volumes:
+      - c:/Users/Thorsten/Projekte/prototypes/volume_mounts/dbt-kimball/postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: adventureworks
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: adim@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - c:/Users/Thorsten/Projekte/prototypes/volume_mounts/dbt-kimball/pgadmin-data:/var/lib/pgadmin
+    depends_on:
+      - postgres

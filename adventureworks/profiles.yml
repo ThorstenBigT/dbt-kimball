@@ -1,0 +1,12 @@
+adventureworks:
+  target: postgres
+  outputs:
+    postgres:  
+      type: postgres
+      host: localhost
+      user: postgres
+      password: postgres
+      port: 5432
+      dbname: adventureworks
+      schema: dbo
+      threads: 12
