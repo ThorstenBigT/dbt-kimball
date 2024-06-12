@@ -11,6 +11,7 @@ I use pipenv for my environment management. If you choose another tool, get the 
 
 I use Postgres with Docker Compose. You can also deploy it differently if you want to.
 
+- Before you build the containers, make sure to adjust the volume paths in the docker-compose.yaml to whichever local path you prefer.
 - Open a terminal in the project root. Execute ```docker-compose up --build```.
 
 ## Setup dbt
