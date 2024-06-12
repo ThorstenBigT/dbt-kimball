@@ -9,7 +9,7 @@ models:
           - not_null
           - unique
       
-      - name: id
+      - name: address_id
         description: The natural key
         tests:
           - not_null

@@ -15,10 +15,10 @@ stg_country_region as (
 
 select
     {{ dbt_utils.generate_surrogate_key(['addr.addressid']) }} as address_key,
-    addr.addressid as id,
+    addr.addressid as address_id,
     addr.city as city_name,
     statep.name as state_name,
     coureg.name as country_name
 from stg_address as addr
-left join stg_stateprovince as statep on addr.stateprovinceid = statep.stateprovinceid
-left join stg_countryregion as coureg on statep.countryregioncode = coureg.countryregioncode
+left join stg_state_province as statep on addr.stateprovinceid = statep.stateprovinceid
+left join stg_country_region as coureg on statep.countryregioncode = coureg.countryregioncode

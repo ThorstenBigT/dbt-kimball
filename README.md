@@ -157,19 +157,24 @@ Objective: Define the numeric measurements that result from a business process.
 
 6. Design the Dimensional Model
 Objective: Structure the model into fact and dimension tables.
-    - Create star schema or snowflake schema diagrams.
+    - Create star schema diagram.
     - Ensure each dimension is connected to the fact table.
     - Fact tables should have foreign keys referencing dimension tables.
     - Dimension tables should include surrogate keys.
 
-7. Create Dimension Tables
-Objective: Define the attributes and structure of each dimension table.
-    - List attributes for each dimension.
-    - Create tables with surrogate keys and appropriate attributes.
-    - Example for a Date dimension: DateKey, FullDate, Day, Week, Month, Quarter, Year.
+    **SOLUTION:**
+    ![The source schema of the seeded database](img/er-diagramm-dim-model.png)
 
-8. Create Fact Tables
-Objective: Define the structure and content of the fact tables.
-    - List all measures and foreign keys to dimension tables.
-    - Create tables with a composite key (composed of foreign keys) and measures.
-    - Example for a Sales fact table: SalesKey, DateKey, ProductKey, CustomerKey, SalesAmount, QuantitySold.
+7. Create dbt models for Dimension Table
+Objective: Define a dbt model for each dimension table.
+    - Create tables with surrogate keys and appropriate attributes.
+
+    **SOLUTION:**
+    - See SQL files in this repo under models/marts/dim_*.sql
+
+8. Create a dbt model for the Fact Table
+Objective: Define a dbt model for the fact table.
+    - Create tables with surrogate keys and appropriate attributes.
+
+     **SOLUTION:**
+    - See SQL files in this repo under models/marts/fct_sales.sql
